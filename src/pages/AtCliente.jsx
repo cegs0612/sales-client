@@ -10,16 +10,12 @@ function renderBody(current) {
   switch (current) {
     case "Ventas":
       return(<Ventas/>)
-      break;
     case "Perfil":
       return(<Perfil/>)
-      break;
     case "ReportesVentas":
       return(<ReportesVentas/>)
-      break;
     default:
       return(<Ventas/>)
-      break;
   }
 }
 

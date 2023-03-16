@@ -12,21 +12,16 @@ function renderBody(current) {
   switch (current) {
     case "Perfil":
       return(<Perfil/>)
-      break;
     case "ReportesAdmin":
       return(<ReportesAdmin/>)
-      break;
     case "Sucursales":
       return(<Sucursales/>)
-      break;
     case "Productos":
       return(<Productos/>)
-      break;
     case "AdminPerfiles":
       return(<AdminPerfiles/>)
     default:
       return(<ReportesAdmin/>)
-      break;
   }
 }
 
