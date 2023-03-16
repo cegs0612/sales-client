@@ -117,7 +117,7 @@ export default function AdminPerfiles() {
         let acceso="";
         if(info[2]==="admin")acceso=1;
         if(info[2]==="ventas")acceso=2;
-        Axios.post("http://localhost:3001/insertPerfil",{
+        Axios.post("https://salescontrolserver.onrender.com/insertPerfil",{
           codigo: info[0],
           usuario: info[1],
           puesto: info[2],
@@ -158,7 +158,7 @@ export default function AdminPerfiles() {
       let acceso="";
         if(info[2]==="admin")acceso=1;
         if(info[2]==="ventas")acceso=2;
-        Axios.put("http://localhost:3001/updatePerfil",{
+        Axios.put("https://salescontrolserver.onrender.com/updatePerfil",{
           _id: id,
           codigo: info[0],
           usuario: info[1],
@@ -194,7 +194,7 @@ export default function AdminPerfiles() {
     } else{
       let confirm = window.confirm("¿Está seguro de eliminar el perfil del usuario "+ perfiles[currentSelection].usuario+"?");
       if(confirm===true){
-        Axios.delete("http://localhost:3001/deletePerfil",{data:{_id:perfiles[currentSelection]._id}})
+        Axios.delete("https://salescontrolserver.onrender.com/deletePerfil",{data:{_id:perfiles[currentSelection]._id}})
       .then((response)=>{
         if (response.status===200) {
         alert("Perfil eliminada");
@@ -208,7 +208,7 @@ export default function AdminPerfiles() {
   }
 
   useEffect(()=>{
-    Axios.get("http://localhost:3001/readPerfiles")
+    Axios.get("https://salescontrolserver.onrender.com/readPerfiles")
     .then((response)=>{setperfiles(response.data)})
     .catch((error)=>{console.log(error)})
   },[refresh]);

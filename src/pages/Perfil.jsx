@@ -49,7 +49,7 @@ export default function Perfil() {
       }
     }    
     if(sendInfo){
-      Axios.put("http://localhost:3001/changePassword",{
+      Axios.put("https://salescontrolserver.onrender.com/changePassword",{
         _id:perfil._id,
         clave:newPassword1,
       })
@@ -70,7 +70,7 @@ export default function Perfil() {
   const updateInfo = ()=>{
     let update=true;
     if(perfil.usuario==="admin1"||perfil.usuario==="ventas1")update=false;
-    Axios.put("http://localhost:3001/updatePerfil",{
+    Axios.put("https://salescontrolserver.onrender.com/updatePerfil",{
       _id: perfil._id,
       codigo: perfil.codigo,
       usuario: perfil.usuario,
@@ -96,7 +96,7 @@ export default function Perfil() {
     }).catch((error)=>{console.log(error)});
   }
   useEffect(()=>{
-    Axios.get("http://localhost:3001/readPerfil",{params:{_id:perfil._id}})
+    Axios.get("https://salescontrolserver.onrender.com/readPerfil",{params:{_id:perfil._id}})
     .then((response)=>{setPerfil(response.data[0])})
     .catch((error)=>{console.log(error)});
 

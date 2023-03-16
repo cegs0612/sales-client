@@ -130,7 +130,7 @@ export default function Ventas() {
         productos: items,
         total: totalVenta, 
       }   
-      Axios.post("http://localhost:3001/insertVenta",addVenta)
+      Axios.post("https://salescontrolserver.onrender.com/insertVenta",addVenta)
       .then((response)=>{
         if (response.status===200) {
           alert("Datos ingresados correctamente")
@@ -157,7 +157,7 @@ export default function Ventas() {
         productos: items,
         total: totalVenta, 
       }   
-      Axios.put("http://localhost:3001/updateVenta",{_id: listaVentas[currentSelection]._id ,updateVenta})
+      Axios.put("https://salescontrolserver.onrender.com/updateVenta",{_id: listaVentas[currentSelection]._id ,updateVenta})
       .then((response)=>{
         if (response.status===200) {
           alert("Datos ingresados correctamente")
@@ -174,7 +174,7 @@ export default function Ventas() {
   const deleteInfo = ()=>{
     let confirm = window.confirm(`¿Está seguro de eliminar la venta con factura n° ${listaVentas[currentSelection].factura}?`);
     if(confirm){
-      Axios.delete("http://localhost:3001/deleteVenta",{data:{_id:listaVentas[currentSelection]._id}})
+      Axios.delete("https://salescontrolserver.onrender.com/deleteVenta",{data:{_id:listaVentas[currentSelection]._id}})
       .then((response)=>{
         if(response.status===200){
           alert("Venta eliminada");
@@ -187,11 +187,11 @@ export default function Ventas() {
   }
 
   useEffect(()=>{
-    Axios.get("http://localhost:3001/readSucursales")
+    Axios.get("https://salescontrolserver.onrender.com/readSucursales")
     .then((response)=>{setSucursales(response.data)})
     .catch((error)=>{console.log(error)});
     
-    Axios.get("http://localhost:3001/readProductos")
+    Axios.get("https://salescontrolserver.onrender.com/readProductos")
     .then((response)=>{setListaItems(response.data)})
     .catch((error)=>{console.log(error)});
 
@@ -209,7 +209,7 @@ export default function Ventas() {
   useEffect(()=>{
     if(currentSucursal!==undefined){
       const date = new Date(today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate()+" 00:00");
-      Axios.get("http://localhost:3001/readVentas",{params:{"fecha":{$gt:date},sucursal:currentSucursal}})
+      Axios.get("https://salescontrolserver.onrender.com/readVentas",{params:{"fecha":{$gt:date},sucursal:currentSucursal}})
       .then((response)=>{setListaVentas(response.data)})
       .catch((error)=>{console.log(error)})
     };
@@ -244,7 +244,6 @@ export default function Ventas() {
               setShowAgregar(true);
               setShowModificar(false);
               setShowModal(true);
-              //document.getElementById("numFactura").focus();
             }}}>Nuevo Registro</button>
           <button onClick={()=>{
             if(currentSucursal===undefined||currentSucursal==="") {
@@ -256,7 +255,6 @@ export default function Ventas() {
                 setShowModal(true);
                 setShowAgregar(false);
                 setShowModificar(true);
-                //document.getElementById("numFactura").focus();
               }
             }}}>Modificar Registro</button>
           <button onClick={()=>{

@@ -47,7 +47,7 @@ export default function ReportesVentas() {
           {fecha: {$lte:final}},
         ]
       }
-      Axios.get("http://localhost:3001/reporteVentas",{params:query})
+      Axios.get("https://salescontrolserver.onrender.com/reporteVentas",{params:query})
       .then((response)=>{
         const datos = response.data;
         datos.map((element)=>{

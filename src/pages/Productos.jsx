@@ -103,7 +103,7 @@ export default function Productos() {
         }        
       }
       if (enviarDatos===true) {
-        Axios.post("http://localhost:3001/insertProducto",{
+        Axios.post("https://salescontrolserver.onrender.com/insertProducto",{
           codProducto: info[0],
           identificador: info[1],
           nombre: info[2],
@@ -133,7 +133,7 @@ export default function Productos() {
       enviarDatos=false;
     };
     if (enviarDatos===true) {
-      Axios.put("http://localhost:3001/updateProducto",{
+      Axios.put("https://salescontrolserver.onrender.com/updateProducto",{
         _id:id,
         codProducto: info[0],
         identificador: info[1],
@@ -161,7 +161,7 @@ export default function Productos() {
     } else{
       let confirm = window.confirm("¿Está seguro de eliminar el producto "+ productos[currentSelection].identificador+"?");
       if(confirm===true){
-        Axios.delete("http://localhost:3001/deleteProducto",{data:{_id:productos[currentSelection]._id}})
+        Axios.delete("https://salescontrolserver.onrender.com/deleteProducto",{data:{_id:productos[currentSelection]._id}})
       .then((response)=>{
         if (response.status===200) {
         alert("Producto eliminado");
@@ -183,7 +183,7 @@ export default function Productos() {
     }
   }
   useEffect(() => {
-    Axios.get("http://localhost:3001/readProductos")
+    Axios.get("https://salescontrolserver.onrender.com/readProductos")
     .then((response)=>{setProductos(response.data)})
     .catch((error)=>{console.log(error)})
   }, [refresh]);

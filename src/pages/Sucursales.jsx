@@ -100,7 +100,7 @@ export default function Sucursales() {
         }        
       }
       if (enviarDatos===true) {
-        Axios.post("http://localhost:3001/insertSucursal",{
+        Axios.post("https://salescontrolserver.onrender.com/insertSucursal",{
           codSucursal: info[0],
           denominacion: info[1],
           pais: info[2],
@@ -130,7 +130,7 @@ export default function Sucursales() {
       enviarDatos=false;
     };
     if (enviarDatos===true) {
-      Axios.put("http://localhost:3001/updateSucursal",{
+      Axios.put("https://salescontrolserver.onrender.com/updateSucursal",{
         _id:id,
         codSucursal: info[0],
         denominacion: info[1],
@@ -158,7 +158,7 @@ export default function Sucursales() {
     } else{
       let confirm = window.confirm("¿Está seguro de eliminar la sucursal "+ dataSucursales[currentSelection].denominacion+"?");
       if(confirm===true){
-        Axios.delete("http://localhost:3001/deleteSucursal",{data:{_id:dataSucursales[currentSelection]._id}})
+        Axios.delete("https://salescontrolserver.onrender.com/deleteSucursal",{data:{_id:dataSucursales[currentSelection]._id}})
       .then((response)=>{
         if (response.status===200) {
         alert("Sucursal eliminada");
@@ -180,7 +180,7 @@ export default function Sucursales() {
     }
   }
   useEffect(() => {
-    Axios.get("http://localhost:3001/readSucursales")
+    Axios.get("https://salescontrolserver.onrender.com/readSucursales")
     .then((response)=>{setDataSucursales(response.data)})
     .catch((error)=>{console.log(error)})
   }, [refresh]);

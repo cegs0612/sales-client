@@ -48,7 +48,7 @@ export default function ReportesAdmin() {
               {fecha: {$lte:final}},
             ],
           }
-          Axios.get("http://localhost:3001/reporteAdmin",{params:{query,sort:{usuario:1,fecha:1}}})
+          Axios.get("https://salescontrolserver.onrender.com/reporteAdmin",{params:{query,sort:{usuario:1,fecha:1}}})
           .then((response)=>{
             if(response.data===[]){
               alert("No hay datos en la(s) fecha(s) señalada(s)");
@@ -72,7 +72,7 @@ export default function ReportesAdmin() {
               {fecha: {$lte:final}},
             ],
           }
-          Axios.get("http://localhost:3001/reporteAdmin",{params:{query,sort:{sucursal:1,fecha:1}}})
+          Axios.get("https://salescontrolserver.onrender.com/reporteAdmin",{params:{query,sort:{sucursal:1,fecha:1}}})
           .then((response)=>{
             if(response.data===[]){
               alert("No hay datos en la(s) fecha(s) señalada(s)");
@@ -94,7 +94,7 @@ export default function ReportesAdmin() {
               {fecha: {$lte:final}},
             ],
           }
-          Axios.get("http://localhost:3001/reporteAdmin",{params:{query,sort:{sucursal:1,fecha:1}}})
+          Axios.get("https://salescontrolserver.onrender.com/reporteAdmin",{params:{query,sort:{sucursal:1,fecha:1}}})
           .then((response)=>{
             if(response.data===[]){
               alert("No hay datos en la(s) fecha(s) señalada(s)");
@@ -116,11 +116,11 @@ export default function ReportesAdmin() {
 
 
   useEffect(()=>{
-    Axios.get("http://localhost:3001/readSucursales")
+    Axios.get("https://salescontrolserver.onrender.com/readSucursales")
     .then((response)=>{setListaSucursales(response.data)})
     .catch((error)=>{console.log(error)});
 
-    Axios.get("http://localhost:3001/readPerfiles")
+    Axios.get("https://salescontrolserver.onrender.com/readPerfiles")
     .then((response)=>{setListaPerfiles(response.data)})
     .catch((error)=>{console.log(error)});
   },[])

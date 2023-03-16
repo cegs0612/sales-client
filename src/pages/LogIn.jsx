@@ -13,7 +13,7 @@ export default function LogIn() {
     if (user===""||password==="") {
       alert("Introduzca datos");
     } else{
-      Axios.get("http://localhost:3001/login",{params:{usuario:user}})
+      Axios.get("https://salescontrolserver.onrender.com/login",{params:{usuario:user}})
       .then((response)=>{
         const datosUsuario = response.data[0];
         
