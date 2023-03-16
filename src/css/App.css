@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #CBFFC7;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  overflow: scroll;
+}
+button{
+  background-color: #FF6464;
+  font-size: 20px;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+button:hover{
+  background-color: #FF7D7D;
+  transition: all 0.5s ;
+  cursor: pointer;
+  border-style: ridge;
+}

@@ -1,0 +1,34 @@
+.cabecera{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+.divSucursal{
+    display:inline-block;
+    padding-left: 10px;
+}
+.form{
+    width: fit-content;
+    min-width: 600px;
+}
+.tdItem{
+ width: 300px;
+}
+td,th{
+    height: 20px;
+}
+.tablaItems{
+    font-size: 15px;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+.tdi{
+    width: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.productos{
+    max-height: 600px;
+    overflow: scroll;
+}

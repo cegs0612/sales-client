@@ -1,0 +1,25 @@
+.perfil{
+    padding-top: 15px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 35px;
+    position: fixed;
+    top: 95px;
+    height: fit-content;
+    width: 100%;
+}
+
+.tabla-perfil{
+    border: 1px solid;
+    font-size: 18px;
+}
+.d{
+    border:none;
+}
+.comandos-perfil{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+}
