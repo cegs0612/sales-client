@@ -208,7 +208,7 @@ export default function AdminPerfiles() {
   }
 
   useEffect(()=>{
-    Axios.get("https://salescontrolserver.onrender.com/readPerfiles")
+    Axios.get("https://salescontrolserver.onrender.com")
     .then((response)=>{setperfiles(response.data)})
     .catch((error)=>{console.log(error)})
   },[refresh]);

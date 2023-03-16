@@ -209,7 +209,7 @@ export default function Ventas() {
   useEffect(()=>{
     if(currentSucursal!==undefined){
       const date = new Date(today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate()+" 00:00");
-      Axios.get("https://salescontrolserver.onrender.com/readVentas",{params:{"fecha":{$gt:date},sucursal:currentSucursal}})
+      Axios.get("https://salescontrolserver.onrender.com/readVentas",{params:{"fecha":{$gt:date},sucursal:currentSucursal,usuario:perfil.codigo}})
       .then((response)=>{setListaVentas(response.data)})
       .catch((error)=>{console.log(error)})
     };
