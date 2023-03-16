@@ -120,7 +120,7 @@ export default function ReportesAdmin() {
     .then((response)=>{setListaSucursales(response.data)})
     .catch((error)=>{console.log(error)});
 
-    Axios.get("https://salescontrolserver.onrender.com/readPerfiles")
+    Axios.get("https://salescontrolserver.onrender.com")
     .then((response)=>{setListaPerfiles(response.data)})
     .catch((error)=>{console.log(error)});
   },[])
